@@ -1,0 +1,21 @@
+<div class="container col-md-12">
+	<div class="row">
+		 <div class="col-sm-12 col-md-12">
+		 	<div class="thumbnail">
+		      <img src="..." alt="...">
+		      <div class="caption">
+		        <h3>{{ post.title }}</h3>
+		        <p>{{ post.body| linebreaks }}</p>
+		        <p>
+		        	
+		        	<a href="#" class="btn btn-success" role="button">Back</a>
+		        	{% if request.user == post.author %}
+		        	<a href="#" class="btn btn-primary" role="button">Update</a>
+		        	<a href="#" class="btn btn-danger" role="button">Delete</a>
+		        	{% endif %}
+		        </p>
+		      </div>
+		    </div>
+		 </div>
+	</div>
+</div>

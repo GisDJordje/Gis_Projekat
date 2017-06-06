@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url,include
 from django.contrib import admin
 from .views import Home_Page_View
-
+from Alergies_Blog.views import Home_Page_View
 
 urlpatterns = [
     #localhost:        #Admin Page

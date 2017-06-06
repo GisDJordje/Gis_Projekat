@@ -1,11 +1,12 @@
 {% extends 'Alergies_Blog/Base_template.html' %}
-{% load static %}
+
 {% block title %} Home Page {% endblock title %}
 
 {% block content %}
 	
 	{% include 'Alergies_Blog/includes/nav_bar_base.html'%} 
-	{% include 'Alergies_Blog/includes/show_all_posts.html'%} 
+	{% include 'Alergies_Blog/includes/post_thumbnail.html'%} 
+	{% include 'Alergies_Blog/includes/comments_for_post.html'%} 
 		
 	
 {% endblock content %}

@@ -10,7 +10,7 @@ from django.views.generic.base import TemplateView
 
 #Home Page App Template View 
 class Home_Page_View(TemplateView):
-    template_name = 'Base_templateI.html'
+    template_name = 'Alergies_Blog/Base_template.html'
   
   
 # Create your views here.
@@ -34,7 +34,7 @@ def post_details(request,year,month,day,post):
             new_comment = form.save(commit = False)
             new_comment.post = post
             new_comment.save()
-            return HttpResponseRedirect(reverse('myblog:home_page'))
+            return HttpResponseRedirect(reverse('Alergies:Blog:home_page'))
         else:
             '''return HttpResponse('There was a problem',form)'''
             return render(request,'Alergies_Blog/post_details.html',{'post':post,'form':form,'comments':comments})
