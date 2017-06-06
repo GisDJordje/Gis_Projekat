@@ -9,8 +9,6 @@ class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status='published')
 
-
-
 #Creating Post Model 
 class Post(models.Model):
     
@@ -43,4 +41,23 @@ class Post(models.Model):
         return reverse('myblog:post_details',args=[self.publish.year,
                                                    self.publish.strftime('%m'),
                                                    self.publish.strftime('%d'),
-                                                   self.slug])
+                                                   self.slug]) 
+        
+class Comments(models.Model):
+    post = models.ForeignKey(Post,related_name="comments") 
+    name = models.CharField(max_length = 100)
+    email = models.EmailField() 
+    body = models.TextField() 
+    created = models.DateTimeField(auto_now_add = True) 
+    updated = models.DateTimeField(auto_now = True) 
+    active = models.BooleanField(default=True) 
+    
+    def __str__(self):
+        return "Commented by {} on {}".format(self.name,self.post)
+    
+    class Meta:
+        ordering = ('-created',) 
+        
+        
+        
+        
