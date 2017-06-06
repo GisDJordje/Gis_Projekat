@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>{% block title %}{% endblock title %}</title>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!--  Links For Including Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <!--  Links For Including OL 3-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.0.1/ol-debug.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.0.1/ol-debug.css">
+  
+  <!-- Links For Including Data Tables -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	 
+  <!--  User Defined Scripts -->
+  <script src="{% static 'js/base.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+	  	
+</head>
+<body>
+{% block content %}
+
+  
+{% endblock content %}
+
+</body>
+</html>

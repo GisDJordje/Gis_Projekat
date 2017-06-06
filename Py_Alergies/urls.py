@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url,include
 from django.contrib import admin
+from .views import Home_Page_View
+
 
 urlpatterns = [
     #localhost:        #Admin Page
-    url(r'^admin/', admin.site.urls),
-    
+    url(r'^admin/', admin.site.urls), 
+    #Home Page                   #http://127.0.0.1:8000/
+    url(r'^$',Home_Page_View.as_view(), name = "home_page"),
+    #Alergies Blog                  #http://127.0.0.1:8000/alergies_blog
+    url(r'^alergies_blog/',include('Alergies_Blog.urls', namespace = "alergies_blog")),
 ]
