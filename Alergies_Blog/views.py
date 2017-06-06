@@ -10,7 +10,7 @@ from django.views.generic.base import TemplateView
 
 #Home Page App Template View 
 class Home_Page_View(TemplateView):
-    template_name = 'Alergies_Blog/Base_template.html'
+    template_name = 'Alergies_Blog/home_page.html'
   
   
 # Create your views here.
