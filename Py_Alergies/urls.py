@@ -25,4 +25,7 @@ urlpatterns = [
     url(r'^$',Home_Page_View.as_view(), name = "home_page"),
     #Alergies Blog                  #http://127.0.0.1:8000/alergies_blog
     url(r'^alergies_blog/',include('Alergies_Blog.urls', namespace = "alergies_blog")),
+    
+     #Account app                  #http://127.0.0.1:8000/account
+    url(r'^account/',include('account.urls', namespace = "account")),
 ]
