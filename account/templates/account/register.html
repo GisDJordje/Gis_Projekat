@@ -1,0 +1,69 @@
+{% extends 'account/Base_template.html' %}
+
+{% block title %}Sign Up{% endblock title %}
+
+{% block content %}
+
+	<h1 style="text-align:center">Create an account:</h1>
+	<p style="text-align:center">Please, sign up using the following form:</p>
+	
+  <form class="form-horizontal col-md-6 col-sm-offset-3" method="POST" action=".">
+	{% csrf_token %}
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="username">{{form.username.label }}:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control " id="username" placeholder="Enter Name" name="username">
+		</div>
+		<span class="col-sm-4">{% if form.username.errors %}{{ form.username.errors }}{% endif %}</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="first_name">{{form.first_name.label }}:</label>
+      <div class="col-sm-5">
+        <input type="text" class="form-control" id="first_name" placeholder="Enter First Name" name="first_name">
+		</div>
+		<span class="col-sm-4">{% if form.first_name.errors %}{{ form.first_name.errors }}{% endif%}</span>
+      
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="email">{{form.email.label }}:</label>
+      <div class="col-sm-5">
+        <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email">
+		</div>
+		<span class="col-sm-4">{% if form.email.errors %}{{ form.email.errors }}{% endif%}</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="pwd">{{form.password.label }}:</label>
+      <div class="col-sm-5">          
+        <input type="password" class="form-control" id="pwd" placeholder="Enter Passowd" name="password">
+		</div>
+		<span class="col-sm-4">{% if form.password.errors %}{{ form.password.errors }}{% endif%}</span>
+      </div>
+    </div>
+	
+	<div class="form-group">
+      <label class="control-label col-sm-3" for="pwd2">{{form.password2.label }}:</label>
+      <div class="col-sm-5">          
+        <input type="password" class="form-control" id="pwd2" placeholder="Repeat Passowd" name="password2">
+		</div>
+		<span class="col-sm-4">{% if form.password2.errors %}{{ form.password2.errors }}{% endif%}</span>
+      </div>
+    </div>
+ 
+    <div class="form-group">        
+      <div class="col-sm-offset-3 col-sm-10">
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+    </div>
+  </form>
+
+<script>
+
+
+
+</script>
+{% endblock content %}

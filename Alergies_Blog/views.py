@@ -11,6 +11,11 @@ from django.views.generic.base import TemplateView
 #Home Page App Template View 
 class Home_Page_View(TemplateView):
     template_name = 'Alergies_Blog/home_page.html'
+    
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        ctx['isRegistred'] = self.request.user.is_authenticated()
+        return ctx
   
   
 # Create your views here.
