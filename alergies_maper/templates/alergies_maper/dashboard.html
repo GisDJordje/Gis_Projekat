@@ -1,0 +1,17 @@
+{% extends 'alergies_maper/Base_template.html' %}
+
+{% block title %} DashBoard {% endblock title %}
+
+{% block content %}
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		{% include 'alergies_maper/includes/navbar_brand.html' %} 
+		{% include 'alergies_maper/includes/navbar_left.html' %} 
+		{% include 'alergies_maper/includes/navbar_right.html' %} 
+	</div>
+</nav>
+	{% include 'alergies_maper/includes/panes_dashboard.html' %} 
+
+
+
+{% endblock content %} 

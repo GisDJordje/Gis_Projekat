@@ -1,0 +1,115 @@
+.navbar {
+		margin-bottom: 0;
+		border-radius: 0;
+
+		border:1px solid black;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {
+	
+		height: 550px;
+		padding-left:0px;
+		padding-right:0px;
+		
+		}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+		padding-top: 10px;
+
+		height: 100%;
+		padding-left:5px;
+		padding-right:5px;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+		padding-left:10px;
+		padding-right:10px;
+
+		background-color: black;
+		color: white;
+		padding-top:20px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		left: 0;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+	
+	/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height:600px; }
+    
+   
+	#regionsPanel{
+		padding:0px;
+		margin: 0px;
+		
+		height:300px;
+		overflow: scroll;
+	}
+    #map{
+		height: 100%;
+		padding:0px;
+		
+	}
+    
+	
+    
+   
+	
+	.ol-popup {
+        position: absolute;
+        background-color: white;
+        -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+        filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #cccccc;
+        bottom: 12px;
+        left: -50px;
+        min-width: 280px;
+      }
+      .ol-popup:after, .ol-popup:before {
+        top: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+      .ol-popup:after {
+        border-top-color: white;
+        border-width: 10px;
+        left: 48px;
+        margin-left: -10px;
+      }
+      .ol-popup:before {
+        border-top-color: #cccccc;
+        border-width: 11px;
+        left: 48px;
+        margin-left: -11px;
+      }
+      .ol-popup-closer {
+        text-decoration: none;
+        position: absolute;
+        top: 2px;
+        right: 8px;
+      }
+      .ol-popup-closer:after {
+        content: "✖";
+      }
+	  #popup-content{
+		overflow:auto;
+		height:150px;
+	  }

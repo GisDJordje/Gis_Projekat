@@ -1,0 +1,49 @@
+{% extends 'alergies_maper/Base_template.html' %}
+
+{% block title %} DashBoard {% endblock title %}
+
+{% block content %}
+
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		{% include 'alergies_maper/includes/navbar_brand.html' %} 
+		{% include 'alergies_maper/includes/navbar_left.html' %} 
+		{% include 'alergies_maper/includes/navbar_right.html' %} 
+	</div>
+</nav>
+<br>
+<div class="col-md-12 table-responsive">
+	<table class="table table-condesed table-bordered table-hover display nowrap" id="example" cellspacing="0" width="100%">
+	
+		<thead class="">
+			<tr>
+				{% for name in names %}
+					<th>{{ name.upper }}</th>
+					
+				{% endfor %}
+				
+			</tr> 
+		</thead>
+		<tbody>
+			{% for i in data %}
+				<tr>
+					{% for j in i %}
+						<td> {{ j }} </td> 
+					{% endfor %}	
+				</tr>
+			{% endfor %}
+		
+		</tbody>
+	</table>
+</div>
+</div>
+
+<script>
+	$('#example').DataTable( {
+        "scrollY": 400,
+        "scrollX": true
+    } );
+	
+</script>
+{% endblock content %} 

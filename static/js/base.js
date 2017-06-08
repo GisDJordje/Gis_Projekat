@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	alert("Djolesub  From PyAlergies Inside");
+	alert("Djolesub  From ");
 
 
 

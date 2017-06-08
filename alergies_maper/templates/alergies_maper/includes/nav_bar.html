@@ -1,0 +1,41 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+  <!--  Navbar Brand -->
+	{% block navbarBrand %}
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">PyAlergies</a>
+		</div>
+	{% endblock navbarBrand %}
+	
+	<!-- Left Side Of navbar -->
+	{% block navbarLeft %}
+	    <ul class="nav navbar-nav">
+	      <li class="active"><a href="{% url 'home_view' %}">Home</a></li>
+	      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a href="#">Page 1-1</a></li>
+	          <li><a href="#">Page 1-2</a></li>
+	          <li><a href="#">Page 1-3</a></li>
+	        </ul>
+	      </li>
+	      <li><a href="{% url 'account:dashboard'%}">Dashboard</a></li>
+	    </ul>
+	{% endblock navbarLeft %}
+    
+    <!-- Navbar Right -->
+    {% block navbarRight %}
+	    <ul class="nav navbar-nav navbar-right">
+	     <!-- Check for user authentication. If user is authenticated show just Logout else show Login and SignUp -->
+	      {% if request.user.is_authenticated %}
+	      	<li><a href="{% url 'account:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	      {% else %}
+	      <li><a href="{% url 'account:sign_up' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	      	<li><a href="{% url 'account:login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      {% endif %}
+	    </ul>
+    {% endblock navbarRight %}
+    
+  </div>
+</nav>
+</body>
+</html>

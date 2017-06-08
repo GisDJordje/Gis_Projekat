@@ -1,0 +1,104 @@
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <!--**************************************************** Accordation ****************************-->
+	  
+<div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Map Layers</a>
+      </h4>
+    </div>
+    <div id="collapse1" class="panel-collapse collapse in">
+      <div class="panel-body">
+		<fieldset>
+			<legend>Base Layers</legend>
+			<label><input type="radio" name="base_layers" value="Osm" checked>OSM</label><br>
+			<label><input type="radio" name="base_layers" value="StamenToner">StamenTonner</label><br>
+			<label><input type="radio" name="base_layers" value="StamenTerrain">StamenTerrain</label>
+		</fieldset>
+		<fieldset>
+			<legend>Overlay Layers</legend>
+			<label><input type="checkbox" name="overlay_layers" value="Serbian_Regions_Borders" checked>Borders</label><br>
+			<label><input type="checkbox" name="overlay_layers" value="Patiente_Postgis_Layer">Patientes</label><br>
+			
+		</fieldset>
+	   </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Serbian Regions</a>
+      </h4>
+    </div>
+    <div id="collapse2" class="panel-collapse collapse">
+      <div class="panel-body" id="regionsPanel">
+	  
+	  </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Map Information</a>
+      </h4>
+    </div>
+    <div id="collapse3" class="panel-collapse collapse">
+      <div class="panel-body">
+		<!-- Number Of Layers  -->
+			<label>LNum:<span id="lnums"></span></label><br>
+		<!-- Zoom -->
+			<label>Zoom:<span id="zoom"></span><br>
+		<!-- Zoom -->
+			<label>Projection:<span id="projection"></span>
+		</div>
+    </div>
+  </div>
+  <!-- Geoserver -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Geoserver</a>
+      </h4>
+    </div>
+    <div id="collapse4" class="panel-collapse collapse">
+      <div class="panel-body">
+		<ul>
+			<li>Djole</li>
+			<li>Djole</li>
+			<li>Djole</li>
+		</ul>
+	  </div>
+    </div>
+  </div>
+</div>
+	  
+	  
+	  
+	  
+<!--**************************************************** Accordation *************************************-->
+
+    </div>
+
+    <div class="col-sm-10" id="map"> </div>
+   </div>
+ </div>
+ 
+ <div id="popup" class="ol-popup">
+	<a href="#" id="popup-closer" class="ol-popup-closer"></a>
+	<div>Layer Name:<span id="sln"></span></div><hr>
+	<div id="popup-content"></div>
+</div>
+
+
+<footer class="container-fluid">
+  <p>Footer Text</p>
+</footer>
+
+
+

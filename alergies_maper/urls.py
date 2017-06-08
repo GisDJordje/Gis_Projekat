@@ -23,7 +23,8 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    #localhost:        #Admin Page
-    url(r'^$', views.home_page, name="home_page"), 
+    #Dashboard View        #Admin Page
+    url(r'^$', views.DashboardView.as_view(), name="dashboard"), 
+    url(r'^all_patientes$', views.get_all_patientes, name="all_patientes"), 
 
 ]

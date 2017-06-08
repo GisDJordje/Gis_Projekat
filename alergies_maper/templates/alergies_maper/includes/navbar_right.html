@@ -1,0 +1,12 @@
+ <!-- Navbar Right -->
+    {% block navbarRight %}
+	    <ul class="nav navbar-nav navbar-right">
+	     <!-- Check for user authentication. If user is authenticated show just Logout else show Login and SignUp -->
+	      {% if request.user.is_authenticated %}
+	      	<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+	      {% else %}
+	      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+	      	<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      {% endif %}
+	    </ul>
+    {% endblock navbarRight %}
