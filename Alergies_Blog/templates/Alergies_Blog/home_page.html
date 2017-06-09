@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
 <head>
   <title>Py Alergies </title>
@@ -14,8 +14,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	
 <!--  User Defined Scripts -->
-  <script src="{% static 'js/base_main.js' %}"></script>
-  <link rel="stylesheet" href="{% static 'css/base_main.css' %}">
+  <script src="{% static 'js/base_home_map_page.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'css/base_home_map_page.css' %}">
 	
 </head>
 <body>
@@ -31,12 +31,12 @@
     {% if request.user.is_authenticated %}
     <ul class="nav navbar-nav">
    
-      <li class="active"><a href="#">Home</a></li>
+      <li {% if section == 'Home' %} class="active" {% endif %}><a href="#">Home</a></li>
       <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Dashboard <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Main</a></li>
-          <li><a href="#">Work Space</a></li>
-          <li><a href="#">Patientes</a></li>
+          <li><a href="{% url 'account:home_page'%}">Main</a></li>
+          <li><a href="{% url 'alergies_maper:dashboard'%}">Work Space</a></li>
+          <li><a href="{% url 'alergies_maper:all_patientes'%}">Patientes</a></li>
         </ul>
       </li>
       <li><a href="{% url 'alergies_blog:home_page' %}">Blog</a></li>
@@ -69,7 +69,8 @@
 		<div class="col-md-4 sidenav" id="sidenavDiv">
 			<div class="row">
 				<div class="col-md-12" id="mainImage">
-					<img  alt="Alergies" src="#"/>
+					<img  alt="Alergies" src="{% static 'images/rec6.jpg' %}"/>
+					 
 				</div>
 			</div>
 		</div>
@@ -81,6 +82,7 @@
 
 <footer class="container-fluid text-center">
   <p>Author Djordje Subotic</p>
+ 
 </footer>
 
 <!--*****************************************--END--***********************************************************************************************--> 

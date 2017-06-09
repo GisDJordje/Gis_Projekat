@@ -3,7 +3,7 @@ from .models import Post,Comments
 
 # Register your models here.
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title','author','date_created','status') 
+    list_display = ('title','author','date_created','status','image') 
     list_filter = ('title','author','status')
     search_fields = ('title','author__first_name','status')
     prepopulated_fields = {'slug':('title',)}

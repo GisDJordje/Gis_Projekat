@@ -331,7 +331,24 @@ $('input[type=radio]').on('change',function(){
 		
 	});
 
+//Geoserver rest workspaces 
 
+$.ajax("{% url 'alergies_maper:get_workspace' %}",{
+	type:"GET",
+	headers:{
+		'Accept':'application/json'
+	}
+}).done(function(response, status){
+	
+	alert(status);
+	console.log("Response is: "+response);
+	
+}).fail(function(ob, status){
+	alert(status);
+	for(var i in ob){
+		console.log(i+":"+ob[i]);
+	}
+});
 
 
 });

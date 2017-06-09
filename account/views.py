@@ -21,4 +21,4 @@ def sign_up(request):
             return render(request,'account/register_done.html',{'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
-    return render(request,'account/register1.html',{'form': user_form}) 
+    return render(request,'account/register.html',{'form': user_form}) 

@@ -43,7 +43,7 @@ view: new ol.View({
 });
 	  
 map.on('click',function(){
-	var isRegistred = document.querySelector('#isRegistred');
+	var isRegistred = $('#pIsRegistred').text();
 	
 	if(isRegistred){
 		
@@ -81,18 +81,18 @@ function getRandomIntInclusive(min, max) {
 function changeImage(){
 	var num = getRandomIntInclusive(0,sources.length - 1);
 	var src = sources[num]; 
+	
 	mainImage.fadeOut(2500,function(){
-		$(this).attr('src',src);
-	}).fadeIn(2000);
+		//alert(src);
+		$(this).attr("src",src);
+		
+	}).fadeIn(1500);
 	
 }
 
-setInterval(changeImage,5000);
+setInterval(changeImage,3000);
 
 
-
-	
-	
 	
 });
 

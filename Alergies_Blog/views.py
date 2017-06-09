@@ -15,13 +15,14 @@ class Home_Page_View(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['isRegistred'] = self.request.user.is_authenticated()
+        ctx['section'] = 'Blog'
         return ctx
   
   
 # Create your views here.
 def home_page(request):
      posts = Post.objects.all()
-     return render(request, 'Alergies_Blog/home_page_all_posts.html',{'posts':posts}) 
+     return render(request, 'Alergies_Blog/home_page_all_posts.html',{'posts':posts,'section':'blog'}) 
 
 #View with details for specific post
 def post_details(request,year,month,day,post):
@@ -63,3 +64,4 @@ def post_share(request,pk):
         form = EmailPostForm()
         
         return render(request,'Alergies_Blog/share_post_form.html',{'form':form,'post':post})
+    

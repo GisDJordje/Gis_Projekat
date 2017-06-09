@@ -28,7 +28,7 @@ class Post(models.Model):
     status = models.CharField(max_length = 20,choices=STATUS_CHOICES,default='draft') 
     objects = models.Manager() 
     published = PublishedManager()
-    
+    image = models.ImageField(null = True, blank = True)
     
     
     class Meta:

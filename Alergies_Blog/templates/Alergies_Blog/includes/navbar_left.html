@@ -1,14 +1,15 @@
 <!-- Left Side Of Navbar -->
 	{% block navbarLeft %}
+	
 	    <ul class="nav navbar-nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">Page 1-1</a></li>
-	          <li><a href="#">Page 1-2</a></li>
-	          <li><a href="#">Page 1-3</a></li>
-	        </ul>
-	      </li>
-	      <li><a href="#">Dashboard</a></li>
+	       <li {% if section == 'Home' %} class="active" {% endif %}><a href="{% url 'home_page'%}">Home</a></li>
+      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Dashboard <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="{% url 'account:home_page'%}">Main</a></li>
+          <li><a href="{% url 'alergies_maper:dashboard'%}">Work Space</a></li>
+          <li><a href="{% url 'alergies_maper:all_patientes'%}">Patientes</a></li>
+        </ul>
+      </li>
+      <li {% if section == 'blog' %} class="active" {% endif %}><a href="{% url 'alergies_blog:home_page' %}">Blog</a></li>
 	    </ul>
 	{% endblock navbarLeft %}

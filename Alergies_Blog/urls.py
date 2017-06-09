@@ -12,6 +12,9 @@ Created on 30.03.2017.
 from django.conf.urls import url
 from .import views
 
+
+
+
 urlpatterns = [
     
    #Url for Home Page            www.hostname.com/blog/
@@ -21,6 +24,15 @@ urlpatterns = [
     url(r'^(?P<year>\d{4})/(?P<month>\d{2})/(?P<day>\d{2})/(?P<post>[-\w]+)/$', views.post_details,name='post_details'),
     
     #url(r'^share_post/(?P<pk>\d{1,2})/$', views.post_share,name='post_share'),
-    
-    
+     
 ]
+
+ 
+
+
+
+
+
+
+
+

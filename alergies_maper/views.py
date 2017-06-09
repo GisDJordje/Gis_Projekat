@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http.response import HttpResponse
 from django.views.generic.base import TemplateView
 
+
 # Create your views here.
 class DashboardView(TemplateView):
     template_name = 'alergies_maper/dashboard.html' 
@@ -28,3 +29,11 @@ def get_all_patientes(request):
     col_names = cur_postgres.fetchall() """
     return render(request,"alergies_maper/all_patientes.html",{'data':data,"names":names,'section':section})
 
+def get_workspace(request):
+    import requests
+    
+    url = 'http://localhost:8090/geoserver/rest/workspaces' 
+    auth = ('admin','geoserver') 
+    headers = {'Content-Type':'application/json'} 
+    r = requests.get(url = url,headers = headers, auth = auth)
+    return HttpResponse(r,content_type="application/json")
