@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.views.generic.base import TemplateView
 
 
@@ -9,7 +9,7 @@ class DashboardView(TemplateView):
         
     def get_context_data(self, **kwargs):
         ctx =  super().get_context_data(**kwargs)
-        ctx['section'] = 'Dashboard'
+        ctx['section'] = 'workspace'
         return ctx 
 
 def get_all_patientes(request):
@@ -30,10 +30,14 @@ def get_all_patientes(request):
     return render(request,"alergies_maper/all_patientes.html",{'data':data,"names":names,'section':section})
 
 def get_workspace(request):
-    import requests
-    
+    '''import requests
     url = 'http://localhost:8090/geoserver/rest/workspaces' 
     auth = ('admin','geoserver') 
-    headers = {'Content-Type':'application/json'} 
+    headers = {'Content-Type':'application/json','Accept':'application/json'} 
     r = requests.get(url = url,headers = headers, auth = auth)
-    return HttpResponse(r,content_type="application/json")
+    return HttpResponse(r,content_type="application/json")'''
+    data = {"ime":"Djordje","prezime":"Subotic","godine":27}
+    return JsonResponse(data)
+    
+    
+    

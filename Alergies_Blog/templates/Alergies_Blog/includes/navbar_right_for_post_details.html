@@ -3,6 +3,13 @@
 	    <ul class="nav navbar-nav navbar-right">
 	     <!-- Check for user authentication. If user is authenticated show just Logout else show Login and SignUp -->
 	      {% if request.user.is_authenticated %}
+	      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Options<span class="caret"></span></a>
+        	<ul class="dropdown-menu">
+				<li><a href="{% url 'account:logout' %}"><span class="glyphicon glyphicon-pencil"></span> Update</a></li>
+				<li><a href="{% url 'account:logout' %}"><span class="glyphicon glyphicon-trash"></span> Delete</a></li>
+				<li><a href="{% url 'account:logout' %}"><span class="glyphicon glyphicon-paperclip"></span> Share</a></li>
+			</ul>
+			</li>
 	      	<li><a href="{% url 'account:logout' %}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 	      {% else %}
 	      <li><a href="{% url 'account:sign_up' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

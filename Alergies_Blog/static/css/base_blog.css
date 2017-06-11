@@ -1,9 +1,21 @@
 /* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
 	
-     margin-bottom: 0;
-     border-radius: 0;
-  
-  border:1px solid black;
+	margin-bottom: 0;
+	border-radius: 0;
+  	border:1px solid black;
  
-   }
+}
+
+#headId {
+	
+	
+	height: 100px;
+	margin: 0px;
+}
+
+#thumb {
+	
+	background-color:red;
+	
+}

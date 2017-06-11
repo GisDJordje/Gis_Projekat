@@ -43,6 +43,21 @@ var styleRegionBorders = new ol.style.Style({
 	
 });
 
+
+/*var chb = $('input[type=checkbox]');
+alert(chb.length);
+for(var i in chb){
+	console.log(i+":"+chb[i]);
+}
+alert(chb.attr('type'));
+
+
+
+chb.on('click',function(){
+	var idName = $(this).attr('id');
+	alert(idName);
+});*/
+
 // Styling Patientes With Function -->
 var style_Patientes = (function(){
 	var woman = [new ol.style.Style({
@@ -142,7 +157,7 @@ $.ajax("http://localhost:8090/geoserver/wfs",{
 }).done(function(data,b,c){
 		
 		format.readFeatures(data); 
-		console.log(format);
+		//console.log(format);
 		
 		$.each(data,function(index, value){
 			console.log(value);
@@ -150,22 +165,31 @@ $.ajax("http://localhost:8090/geoserver/wfs",{
 				$.each(value, function(k,v){
 					console.log(v.properties.NAME_1); 
 					var collapse = document.querySelector('#regionsPanel');
-					var input = document.createElement('input');
+					var input = document.createElement('input');		
 					input.type = 'checkbox';
 					input.name = 'regions';
-					input.setAttribute('class','col-md-3');
+					input.id = v.properties.NAME_1;
+					input.setAttribute('class','col-md-2');
 					var label = document.createElement('label');
-					label.setAttribute('class','col-md-9');
+					label.setAttribute('class','col-md-10');
 					label.appendChild(document.createTextNode(''+v.properties.NAME_1+''));
+					label.appendChild(input);
 					
-					collapse.appendChild(label);
-					collapse.appendChild(input);
+					var div = document.createElement('div');	
+					div.setAttribute('class','checkbox col-md-12');
+					div.appendChild(label);
+					div.appendChild(input);
 					
-					collapse.appendChild(document.createElement('br'));
+					collapse.appendChild(div);
+					
+						
 				})
+				
+				
 			}
 		})
 });
+
 
 var Osm = new ol.layer.Tile({
 	name: 'Osm',
@@ -332,23 +356,72 @@ $('input[type=radio]').on('change',function(){
 	});
 
 //Geoserver rest workspaces 
-
-$.ajax("{% url 'alergies_maper:get_workspace' %}",{
+/*
+$.ajax("{% url 'alergies_maper:wr'%}",{
 	type:"GET",
-	headers:{
-		'Accept':'application/json'
-	}
+	headers:{'Accept':'application/json','Content-Type':'application/json'}
+	
 }).done(function(response, status){
 	
-	alert(status);
+	//alert(status);
 	console.log("Response is: "+response);
 	
 }).fail(function(ob, status){
-	alert(status);
+	//alert(status);
 	for(var i in ob){
 		console.log(i+":"+ob[i]);
 	}
+});*/
+
+
+// Cluster Source -->
+var features = [];
+
+var source2 = new ol.source.Vector({
+	
 });
+
+var format = new ol.format.GeoJSON();
+
+//Clustering Layer Continuing
+/*$.ajax("http://localhost:8090/geoserver/wfs",{
+				type: "GET",
+				data: {
+					service: "WFS",
+					version: "1.1.0",
+					request: "GetFeature",
+					typename: "PythonAlergies:patiente_postgis",
+					srsname: "EPSG:4326",
+					outputFormat: "application/json",
+					
+				}
+			}).done(function(response,status){
+				//alert(status)
+				/*source2.addFeatures(new ol.format.GeoJSON().readFeatures(response));
+				
+				var source = new ol.source.Vector({
+					features: source2.getFeatures(),
+					projection: 'EPSG:4326'
+				});
+
+				var clusterSource = new ol.source.Cluster({
+					distance: 8,
+					projection: 'EPSG:4326',
+					source: source
+				});
+				
+				var clusters = new ol.layer.Vector({
+					source: clusterSource
+				})
+				
+				map.addLayer(clusterSource);
+			});*/
+
+
+
+
+
+
 
 
 });

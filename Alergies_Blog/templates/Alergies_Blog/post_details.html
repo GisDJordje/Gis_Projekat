@@ -4,7 +4,13 @@
 
 {% block content %}
 	
-	{% include 'Alergies_Blog/includes/nav_bar_base.html'%} 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">	
+	{% include 'Alergies_Blog/includes/navbar_brand.html'%} 
+	{% include 'Alergies_Blog/includes/navbar_left.html'%} 
+	{% include 'Alergies_Blog/includes/navbar_right_for_post_details.html'%} 
+  </div>
+ </nav>	
 	{% include 'Alergies_Blog/includes/post_thumbnail.html'%} 
 	{% include 'Alergies_Blog/includes/comments_for_post.html'%} 
 		

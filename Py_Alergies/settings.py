@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Alergies_Blog',
     'account',
-    'alergies_maper'
+    'alergies_maper',
+    
 ]
 
 MIDDLEWARE_CLASSES = [

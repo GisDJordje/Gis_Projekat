@@ -83,7 +83,7 @@ function changeImage(){
 	var src = sources[num]; 
 	
 	mainImage.fadeOut(2500,function(){
-		//alert(src);
+		alert(src);
 		$(this).attr("src",src);
 		
 	}).fadeIn(1500);

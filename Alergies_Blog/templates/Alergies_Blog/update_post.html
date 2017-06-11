@@ -1,0 +1,33 @@
+{% extends 'Alergies_Blog/Base_template.html' %}
+{% load staticfiles %}
+{% block title %} Create Post {% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-8 col-md-offset-2">
+            <h1 class="text-center login-title"> Edit Post </h1>
+			<form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
+				{% csrf_token %}
+				{% for field in form %}
+					
+					<div class="form-group">
+			    		<label class="control-label col-md-2" for={{ field.id_for_label }}>{{ field.label }}</label>
+			    		<div class="col-md-10">
+			    			<div class="col-md-8">
+			     			 	{{ field }}
+			     			 </div>
+			     			 <div class="col-md-4">
+			     			 	<span style="color:red;">{% if field.errors %}{{ field.errors }}{% endif %}</span>
+			     			 </div>
+			    		</div>
+			  		</div>
+				{% endfor %}
+				<div class="col-sm-offset-2 col-md-10">
+			      <button type="submit" class="btn btn-success">Submit</button>
+			    </div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content %}
