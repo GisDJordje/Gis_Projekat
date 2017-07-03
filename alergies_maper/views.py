@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse, JsonResponse
-from django.views.generic.base import TemplateView
-
+from django.views.generic.base import TemplateView,View
+import json
 
 # Create your views here.
 class DashboardView(TemplateView):
@@ -30,14 +30,37 @@ def get_all_patientes(request):
     return render(request,"alergies_maper/all_patientes.html",{'data':data,"names":names,'section':section})
 
 def get_workspace(request):
-    '''import requests
+    import requests
     url = 'http://localhost:8090/geoserver/rest/workspaces' 
     auth = ('admin','geoserver') 
     headers = {'Content-Type':'application/json','Accept':'application/json'} 
     r = requests.get(url = url,headers = headers, auth = auth)
-    return HttpResponse(r,content_type="application/json")'''
-    data = {"ime":"Djordje","prezime":"Subotic","godine":27}
-    return JsonResponse(data)
+    return HttpResponse(r,content_type="application/json")
+    
+def get_layers(request):
+    import requests
+    url = 'http://localhost:8090/geoserver/rest/layers' 
+    auth = ('admin','geoserver') 
+    headers = {'Content-Type':'application/json','Accept':'application/json'} 
+    r = requests.get(url = url,headers = headers, auth = auth)
+    return HttpResponse(r,content_type="application/json")
+
+
+
+
+def getws(request):
+    return render(request, 'alergies_maper/rest.html') 
+
+class HomeView(View):
+    def get(self, request, *args, **kwargs):
+        return render(request, 'alergies_maper/charts.html')
+    
+def get_data(request):
+    return JsonResponse({"Ime":"Djordje","Prezime":"Subotic","Godine":27})    
+    
+    
+    
+    
     
     
     

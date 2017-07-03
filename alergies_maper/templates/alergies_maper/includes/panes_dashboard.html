@@ -59,24 +59,37 @@
 		</div>
     </div>
   </div>
-  <!-- Geoserver -->
+  <!-- Geoserver Workspaces -->
   <div class="panel panel-default">
     <div class="panel-heading">
       <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Geoserver</a>
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Geoserver Workspaces</a>
       </h4>
     </div>
     <div id="collapse4" class="panel-collapse collapse">
-      <div class="panel-body" id="gsWS">
-		<ul>
-			<li>Djole</li>
-			<li>Djole</li>
-			<li>Djole</li>
-		</ul>
+      <div class="panel-body" id="workspaces">
+		
 	  </div>
     </div>
   </div>
+  <!-- Geoserver Layers -->
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Geoserver Layers</a>
+      </h4>
+    </div>
+    <div id="collapse5" class="panel-collapse collapse">
+      <div class="panel-body" id="layers">
+		
+	  </div>
+    </div>
+  </div>
+  
+  
 </div>
+
+
 	  
 	  
 	  
@@ -100,5 +113,59 @@
   <p>Footer Text</p>
 </footer>
 
+<!--  Geoserver Rest  Workspaces -->
+<script>
+$.ajax("{% url 'alergies_maper:get_workspace' %}",{
+	type:"GET",
+	headers : {"Accept":"application/json","Content-Type":"application/json"}
+	
+}).done(function(res, status){
+	alert(status)
+	var data = res.workspaces.workspace 
+	var table = "<ul>";
+	$.each(data, function(index,value){
+		
+		$.each(value,function(k,v){
+			if(k == 'href'){
+				var t = "<li>"+"<a href="+""+"http://localhost:8090/geoserver/rest/workspaces/"+value['name']+""+">"+value['name']+"</a>"+"</li>";
+				table+=t;
+			}
+			
+		})
+		
+	});
+	table+="</ul>";
+	$('#workspaces').html(table);
+	
+}).fail(function(s,v){
+	alert(v)
+});
 
+<!--  Geoserver Rest  Layers -->
+$.ajax("{% url 'alergies_maper:get_layers' %}",{
+	type:"GET",
+	headers : {"Accept":"application/json","Content-Type":"application/json"}
+	
+}).done(function(res, status){
+	
+	var data = res.layers.layer
+	var table = "<ul>";
+	$.each(data, function(index,value){
+		
+		$.each(value,function(k,v){
+			if(k == 'href'){
+				var t = "<li>"+"<a href="+""+"http://localhost:8090/geoserver/rest/layers/"+value['name']+""+">"+value['name']+"</a>"+"</li>";
+				table+=t;
+			}
+			
+		})
+		
+	});
+	table+="</ul>";
+	$('#layers').html(table);
+	
+}).fail(function(s,v){
+	alert(v)
+});
+</script> 
 

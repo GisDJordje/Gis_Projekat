@@ -1,0 +1,83 @@
+{% extends 'alergies_maper/Base_template.html' %}
+
+{% block title %} Charts {% endblock title %}
+
+{% block content %}
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		{% include 'alergies_maper/includes/navbar_brand.html' %} 
+		{% include 'alergies_maper/includes/navbar_left.html' %} 
+		{% include 'alergies_maper/includes/navbar_right.html' %} 
+	</div>
+</nav>
+<div class="row">
+	<div class="col-md-9">
+		<h1> I am In First Div </h1>
+		<canvas id="myChart" width="200" height="200"></canvas>
+	</div>
+</div>
+
+
+<script>
+var ajaxData = [];
+var ajaxLabels = [];
+
+$.ajax("{% url 'alergies_maper:get_data' %}", {
+	type:"GET",
+	headers:{"Accept":"application/json","Content-Type":"application/json"}
+	
+}).done(function(response, status){
+	if(status == "success"){
+		$.each(response,function(k,v){
+			ajaxData.push(v);
+			ajaxLabels.push(k);
+			/*var li = $('li');
+			li.text(""+k+" : "+v);
+			$('#ulForRes').append(li);*/ //Yasto zapisuje 8 puta 
+			$('#ulForRes').append("<li>"+k+":"+v+"</li>");
+		})
+	}
+	
+}).fail(function(response,status){
+	alert(status);
+});
+
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        labels: ajaxLabels,
+        datasets: [{
+            label: '# of Votes',
+            data: ajaxData,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+{% endblock content %} 

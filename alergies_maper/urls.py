@@ -26,6 +26,12 @@ urlpatterns = [
     #Dashboard View        #Admin Page
     url(r'^$', views.DashboardView.as_view(), name="dashboard"), 
     url(r'^all_patientes$', views.get_all_patientes, name="all_patientes"), 
-    url(r'^get_workspaces$', views.get_workspace, name="wr"), 
+    url(r'^get_workspace$', views.get_workspace, name="get_workspace"), 
+    url(r'^get_layers$', views.get_layers, name="get_layers"), 
+    url(r'^get_workspace/my_rest$', views.getws, name="getws"), 
+    url(r'^test_charts$', views.HomeView.as_view(), name="get_charts"),
+    url(r'^get_data$', views.get_data, name="get_data"), 
+ 
+
 
 ]

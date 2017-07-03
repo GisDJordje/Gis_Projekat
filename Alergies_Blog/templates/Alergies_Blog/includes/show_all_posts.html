@@ -11,9 +11,9 @@
 	        	{% if request.user.is_stuff or request.user.is_superuser %}
 		        	
 		        	{% if post.author == request.user %}
-						<a href="#"class="btn btn-danger" role="button">Delete</a>
-						<a href="#" class="btn btn-danger" role="button">Delete</a>
-						<a href="#" class="btn btn-danger" role="button">Share</a>
+						<a href="{% url 'alergies_blog:post_update' post.pk %}" class="btn btn-primary" role="button">Update</a>
+						<a href="{% url 'alergies_blog:post_share' post.pk %}" class="btn btn-info" role="button">Share</a>
+						<a href="{% url 'alergies_blog:delete_post' post.pk %}" id="btnDeletePost" class="btn btn-danger" role="button">Delete</a>
 		        	{% endif %}
 		        {% endif %}
 	        </p>

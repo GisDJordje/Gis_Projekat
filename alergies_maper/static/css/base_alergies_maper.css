@@ -63,10 +63,6 @@
 		
 	}
     
-	
-    
-   
-	
 	.ol-popup {
         position: absolute;
         background-color: white;
@@ -113,3 +109,32 @@
 		overflow:auto;
 		height:150px;
 	  }
+	  
+#workspaces {
+	padding:0px;
+	margin: 0px;
+		
+	height:200px;
+	overflow-y:scroll;
+	
+}	 
+
+#layers {
+	padding:0px;
+	margin: 0px;
+		
+	height:200px;
+	overflow-y:scroll;
+	
+}	 
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  
+	  

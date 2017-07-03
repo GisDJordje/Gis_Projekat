@@ -50,12 +50,8 @@ def post_details(request,year,month,day,post):
 
 
 #View Form Update
-def update_post(request, year, month, day, post):
-    post = get_object_or_404(Post,slug= post,
-                                    publish__year = year,
-                                    publish__month = month,
-                                    publish__day = day,
-                                    ) 
+def update_post(request,pk):
+    post = get_object_or_404(Post,pk=pk) 
     if request.POST:
         post = CreatePostForm(request.POST, instance = post)
         if post.is_valid():
@@ -97,4 +93,15 @@ def post_share(request,pk):
     else:
         form = EmailPostForm()
         return render(request,'Alergies_Blog/share_post_form.html',{'form':form,'post':post})
+
+
+def delete_post(request,pk):
+    post = get_object_or_404(Post,pk = pk)
+    post.delete()
+    return HttpResponse("Post is deleted")
+
+
+
+
+
     

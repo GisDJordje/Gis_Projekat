@@ -11,7 +11,7 @@ var l1 = new ol.layer.Tile({
 	opacity:0.5,
 	source: new ol.source.TileWMS({
 		url:'http://localhost:8090/geoserver/wms',
-		params: {LAYERS: 'PythonAlergies:SRB_adm1', VRESION: '1.1.1'}
+		params: {LAYERS: 'PythonAlergies:SRB_adm1', VRESION: '1.1.1','feature_count':50}
 	}),
 	style: new ol.style.Style({
 		fill: new ol.style.Fill({
@@ -45,7 +45,7 @@ view: new ol.View({
 map.on('click',function(){
 	var isRegistred = $('#pIsRegistred').text();
 	
-	if(isRegistred){
+	if(isRegistred == false){
 		
 		alert("You are logged in, you can proceed to your dashboard");
 	}
@@ -83,7 +83,7 @@ function changeImage(){
 	var src = sources[num]; 
 	
 	mainImage.fadeOut(2500,function(){
-		alert(src);
+		//alert(src);
 		$(this).attr("src",src);
 		
 	}).fadeIn(1500);

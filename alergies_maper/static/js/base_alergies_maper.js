@@ -63,7 +63,7 @@ var style_Patientes = (function(){
 	var woman = [new ol.style.Style({
 		image: new ol.style.Circle({
 			fill: new ol.style.Fill({ color: 'red'}),
-			radius: 10
+			radius: 8
 		}),
 		
 	})];
@@ -71,7 +71,7 @@ var style_Patientes = (function(){
 	var man = [new ol.style.Style({
 		image: new ol.style.Circle({
 			fill: new ol.style.Fill({ color: 'blue'}),
-			radius: 10
+			radius: 8
 		})
 	})];
 		
@@ -339,8 +339,7 @@ $('input[type=radio]').on('change',function(){
 	var layer = $(this).val();
 	map.getLayers().getArray().forEach(function(e){
 		var name = e.get('name');
-		if(radName == "base_layers"){
-			alert("Djordje");
+		if(radName == name){
 			e.setVisible(name == layer);
 		}
 });

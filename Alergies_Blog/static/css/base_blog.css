@@ -16,6 +16,16 @@
 
 #thumb {
 	
-	background-color:red;
+	background-color:white;
 	
+}
+
+.glyphicon.glyphicon-trash {
+   
+     color:black;
+}
+
+.glyphicon.glyphicon-share {
+    font-size: 50px;
+    color:black;
 }
